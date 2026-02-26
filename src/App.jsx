@@ -24,6 +24,7 @@ function App() {
 			<Section title="1. Визитка на ученик (StudentCard)">
 				<StudentCard name="Гошо Пешо" grade="11Б" averageScore={4.2} />
 				<StudentCard name="Пешо Гошев" grade="11А" averageScore={4.01} />
+				<StudentCard name="Луканчо луканков" grade="11Л" averageScore={6.01} />
 			</Section>
 
 			<Section title="2. Статус индикатор (StatusBadge)">
@@ -43,6 +44,19 @@ function App() {
 					</AccordionItem>
 					<AccordionItem title="Случаен факт">
 						<p>Пешо пази последното парче.</p>
+					</AccordionItem>
+					<AccordionItem title="Луканка вътре в луканка">
+						<Accordion>
+							<AccordionItem title="Какво е луканка?">
+								<p>Салам. Много добър.</p>
+							</AccordionItem>
+							<AccordionItem title="Колко стига?">
+								<p>Около 5 минути.</p>
+							</AccordionItem>
+							<AccordionItem title="Случаен факт">
+								<p>Пешо пази последното парче.</p>
+							</AccordionItem>
+						</Accordion>
 					</AccordionItem>
 				</Accordion>
 			</Section>

@@ -34,17 +34,27 @@ function AddStudentForm({ onAdd }) {
 
 function StudentRow({ student, onGrade, onDelete }) {
 	const [gradeInput, setGradeInput] = useState("");
+	const [gradeError, setGradeError] = useState("");
 	const avg =
 		student.scores.length > 0
 			? (student.scores.reduce((a, b) => a + b, 0) / student.scores.length).toFixed(2)
 			: "—";
 
 	const handleGrade = () => {
-		const val = parseFloat(gradeInput);
-		if (val >= 2 && val <= 6) {
-			onGrade(student.id, val);
-			setGradeInput("");
+		if (!gradeInput.trim()) {
+			setGradeError("Въведи оценка от 2 до 6");
+			return;
 		}
+
+		const val = parseFloat(gradeInput);
+		if (Number.isNaN(val) || val < 2 || val > 6) {
+			setGradeError("Невалидна оценка (2-6)");
+			return;
+		}
+
+		onGrade(student.id, val);
+		setGradeInput("");
+		setGradeError("");
 	};
 
 	return (
@@ -71,13 +81,17 @@ function StudentRow({ student, onGrade, onDelete }) {
 				step="0.01"
 				placeholder="Оценка"
 				value={gradeInput}
-				onChange={(e) => setGradeInput(e.target.value)}
+				onChange={(e) => {
+					setGradeInput(e.target.value);
+					if (gradeError) setGradeError("");
+				}}
 				style={{ width: 70, padding: 4 }}
 			/>
 			<button onClick={handleGrade}>Постави</button>
 			<button onClick={() => onDelete(student.id)} style={{ color: "red" }}>
 				Изтрий
 			</button>
+			{gradeError && <span style={{ color: "#dc2626", fontSize: 12 }}>{gradeError}</span>}
 		</div>
 	);
 }

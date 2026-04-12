@@ -1,0 +1,138 @@
+:root {
+  --primary: #017ae0;
+  --success: #00bc89;
+  --error: #ff5241;
+  --bg: #f5f5f5;
+  --radius: 12px;
+  --text: #162033;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.profile-card {
+  width: min(100%, 420px);
+  padding: 24px;
+  border-radius: var(--radius);
+  border-top: 4px solid var(--primary);
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 35, 95, 0.12);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(15, 35, 95, 0.18);
+}
+
+.profile-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary), var(--success));
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 18px;
+}
+
+.name {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.class-label {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(1, 122, 224, 0.12);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.average {
+  margin: 18px 0 20px;
+  font-size: 17px;
+}
+
+.subjects {
+  display: flex;
+  gap: 12px;
+}
+
+.subject {
+  flex: 1;
+  padding: 16px;
+  border-radius: 10px;
+  background: #f8fbff;
+  border: 1px solid rgba(1, 122, 224, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subject-name {
+  font-size: 14px;
+  color: #5a6887;
+}
+
+.grade {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.grade.high {
+  color: var(--success);
+}
+
+.grade.low {
+  color: var(--error);
+}
+
+@media (max-width: 600px) {
+  .page-shell {
+    padding: 16px;
+  }
+
+  .profile-card {
+    width: 100%;
+  }
+
+  .subjects {
+    flex-direction: column;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+}

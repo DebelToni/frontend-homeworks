@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 2 - Интерактивен To-Do списък</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="todo-app">
+      <section class="todo-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Задача 2</p>
+            <h1>To-Do списък</h1>
+          </div>
+          <p id="counter" class="counter"></p>
+        </div>
+
+        <div class="input-row">
+          <input id="todo-input" type="text" placeholder="Добавете нова задача" />
+          <button id="add-btn" type="button">Добави</button>
+        </div>
+
+        <p id="error" class="error"></p>
+
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all" type="button">Всички</button>
+          <button class="filter-btn" data-filter="active" type="button">Активни</button>
+          <button class="filter-btn" data-filter="completed" type="button">Завършени</button>
+        </div>
+
+        <ul id="todo-list" class="todo-list"></ul>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3 - Async Data Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="dashboard-app">
+      <section class="hero-card">
+        <div>
+          <p class="eyebrow">Задача 3</p>
+          <h1>Async Data Dashboard</h1>
+          <p id="summary" class="summary">Готов за зареждане на данните.</p>
+        </div>
+        <button id="reload-btn" type="button">Презареди</button>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-label">Потребители</span>
+          <strong id="users-count">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Средно коментари на пост</span>
+          <strong id="avg-comments">0.0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Време за зареждане</span>
+          <strong id="elapsed-time">0 ms</strong>
+        </article>
+      </section>
+
+      <p id="loading" class="loading">Зарежда се...</p>
+
+      <section class="panels-grid">
+        <article class="data-panel">
+          <div class="panel-head">
+            <h2>Потребители</h2>
+            <span id="status-users" class="status-pill loading-status">Зарежда се...</span>
+          </div>
+          <ul id="users-list" class="data-list"></ul>
+        </article>
+
+        <article class="data-panel">
+          <div class="panel-head">
+            <h2>Постове</h2>
+            <span id="status-posts" class="status-pill loading-status">Зарежда се...</span>
+          </div>
+          <ul id="posts-list" class="data-list"></ul>
+        </article>
+
+        <article class="data-panel">
+          <div class="panel-head">
+            <h2>Коментари</h2>
+            <span id="status-comments" class="status-pill loading-status">Зарежда се...</span>
+          </div>
+          <ul id="comments-list" class="data-list"></ul>
+        </article>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
